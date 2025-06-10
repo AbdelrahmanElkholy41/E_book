@@ -1,3 +1,4 @@
+import 'package:e_book/Feature/home/presentation/views/BookDetailsView.dart';
 import 'package:flutter/material.dart';
 
 class ListBookBestSeller extends StatelessWidget {
@@ -20,16 +21,21 @@ class ListBookBestSeller extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AspectRatio(
-                    aspectRatio: 2.5 / 4,
-                    child: Container(
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.grey[200], // Fallback color
-                        image: const DecorationImage(
-                          image: AssetImage('assets/images/test_image.png'),
-                          fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsView()));
+                    },
+                    child: AspectRatio(
+                      aspectRatio: 2.5 / 4,
+                      child: Container(
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.grey[200], // Fallback color
+                          image: const DecorationImage(
+                            image: AssetImage('assets/images/test_image.png'),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

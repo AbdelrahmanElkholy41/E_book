@@ -1,3 +1,4 @@
+import 'package:e_book/Feature/home/presentation/views/BookDetailsView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,16 +7,21 @@ class CustomListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.7 / 4,
-      child: Container(
-        decoration: BoxDecoration(
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsView()));
+      },
+      child: AspectRatio(
+        aspectRatio: 2.7 / 4,
+        child: Container(
+          decoration: BoxDecoration(
 
-          image: DecorationImage(
-            image: AssetImage('assets/images/test_image.png'),
-            fit: BoxFit.fill,
+            image: DecorationImage(
+              image: AssetImage('assets/images/test_image.png'),
+              fit: BoxFit.fill,
+            ),
+            borderRadius: BorderRadius.circular(16),
           ),
-          borderRadius: BorderRadius.circular(16),
         ),
       ),
     );
