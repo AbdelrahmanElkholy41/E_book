@@ -10,9 +10,12 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+        child:  Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
         CustomAppBar(),
 
         Padding(
@@ -35,9 +38,17 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
 
-        ListBookBestSeller(),
+
       ],
+    )
+        ),
+        SliverFillRemaining(
+          child: ListBookBestSeller(),
+        )
+      ],
+
     );
+
   }
 }
 

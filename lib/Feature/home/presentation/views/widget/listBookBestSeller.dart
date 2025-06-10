@@ -8,6 +8,7 @@ class ListBookBestSeller extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.44,
       child: ListView.separated(
+        physics: NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         itemCount: 10,
         separatorBuilder: (context, index) => const SizedBox(height: 16),
