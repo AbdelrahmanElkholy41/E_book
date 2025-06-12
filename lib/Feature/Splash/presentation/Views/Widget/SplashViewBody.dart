@@ -2,6 +2,7 @@ import 'package:e_book/Feature/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 import 'SlidingText.dart';
@@ -57,11 +58,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(Duration(seconds: 3), () {
-      Get.to(
-        () => const HomeView(),
-        transition: Transition.fade,
-        duration: Duration(milliseconds: 250),
-      );
+      // Get.to(
+      //   () => const HomeView(),
+      //   transition: Transition.fade,
+      //   duration: Duration(milliseconds: 250),
+      // );
+      GoRouter.of(context).push('/homeView');
       // Navigator.push(context,MaterialPageRoute(builder:(context)=> HomeView()));
     });
   }
