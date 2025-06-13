@@ -1,5 +1,9 @@
 import 'package:e_book/Feature/home/presentation/views/BookDetailsView.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'ImageDecoration.dart';
+import 'TextStare.dart';
 
 class ListBookBestSeller extends StatelessWidget {
   const ListBookBestSeller({super.key});
@@ -23,22 +27,10 @@ class ListBookBestSeller extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsView()));
+                      GoRouter.of(context).push('/BookDetails');
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsView()));
                     },
-                    child: AspectRatio(
-                      aspectRatio: 2.5 / 4,
-                      child: Container(
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.grey[200], // Fallback color
-                          image: const DecorationImage(
-                            image: AssetImage('assets/images/test_image.png'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
+                    child:imageDecoration()
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -71,16 +63,8 @@ class ListBookBestSeller extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Row(
-                              children: [
-                                const Icon(Icons.star, color: Colors.amber, size: 16),
-                                const SizedBox(width: 4),
-                                Text(
-                                  '4.8 (2390)',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                              ],
-                            ),
+                            TextStare(),
+
                           ],
                         ),
                       ],
